@@ -22,8 +22,10 @@ import android.widget.TextView;
 import dashboard.opensrp.org.jandjdashboard.controller.controllerHolders;
 import dashboard.opensrp.org.jandjdashboard.dummy.DummyContent;
 import dashboard.opensrp.org.jandjdashboard.fragments.anc_pnc_encc_StatusDetailFragment;
+import dashboard.opensrp.org.jandjdashboard.fragments.contraceptiveSupplyStatusDetailFragment;
 import dashboard.opensrp.org.jandjdashboard.fragments.delivery_status_detail_Fragment;
 import dashboard.opensrp.org.jandjdashboard.fragments.familyPlanningStatusDetailFragment;
+import dashboard.opensrp.org.jandjdashboard.fragments.nutritionDetailFragment;
 import dashboard.opensrp.org.jandjdashboard.fragments.reproductive_health_service_Fragment;
 import dashboard.opensrp.org.jandjdashboard.fragments.upcomingScheduleStatusDetailFragment;
 import dashboard.opensrp.org.jandjdashboard.widgets.calendarPoPUpWindow;
@@ -132,6 +134,21 @@ public class dashboardCategoryListActivity extends AppCompatActivity {
         if(currentFragmentName.equalsIgnoreCase("anc_pnc_encc_StatusDetailFragment")){
             ((anc_pnc_encc_StatusDetailFragment)currentFragment).refresh(fromdate,todate);
         }
+        if(currentFragmentName.equalsIgnoreCase("reproductive_health_service_Fragment")){
+            ((reproductive_health_service_Fragment)currentFragment).refresh(fromdate,todate);
+        }
+        if(currentFragmentName.equalsIgnoreCase("delivery_status_detail_Fragment")){
+            ((delivery_status_detail_Fragment)currentFragment).refresh(fromdate,todate);
+        }
+        if(currentFragmentName.equalsIgnoreCase("nutrition_detail_Fragment")){
+            ((nutritionDetailFragment)currentFragment).refresh(fromdate,todate);
+        }
+        if(currentFragmentName.equalsIgnoreCase("contraceptive_supply_status_detailFragment")){
+            ((contraceptiveSupplyStatusDetailFragment)currentFragment).refresh(fromdate,todate);
+        }
+        if(currentFragmentName.equalsIgnoreCase("family_planning_StatusDetailFragment")){
+            ((familyPlanningStatusDetailFragment)currentFragment).refresh(fromdate,todate);
+        }
 
     }
 
@@ -188,7 +205,10 @@ public class dashboardCategoryListActivity extends AppCompatActivity {
                                 Bundle arguments = new Bundle();
                                 arguments.putString(familyPlanningStatusDetailFragment.ARG_ITEM_ID, holder.mItem.id);
                                 familyPlanningStatusDetailFragment fragment = new familyPlanningStatusDetailFragment();
+                                arguments.putSerializable("controller_holder",controllerholder);
                                 fragment.setArguments(arguments);
+                                currentFragmentName = "family_planning_StatusDetailFragment";
+                                currentFragment = fragment;
                                 getSupportFragmentManager().beginTransaction()
                                         .replace(R.id.dashboardcategory_detail_container, fragment)
                                         .commit();
@@ -227,6 +247,32 @@ public class dashboardCategoryListActivity extends AppCompatActivity {
                                 arguments.putSerializable("controller_holder",controllerholder);
                                 fragment.setArguments(arguments);
                                 currentFragmentName = "delivery_status_detail_Fragment";
+                                currentFragment = fragment;
+                                getSupportFragmentManager().beginTransaction()
+                                        .replace(R.id.dashboardcategory_detail_container, fragment)
+                                        .commit();
+                                break;
+                            }
+                            case 7: {
+                                Bundle arguments = new Bundle();
+                                arguments.putString(reproductive_health_service_Fragment.ARG_ITEM_ID, holder.mItem.id);
+                                nutritionDetailFragment fragment = new nutritionDetailFragment();
+                                arguments.putSerializable("controller_holder",controllerholder);
+                                fragment.setArguments(arguments);
+                                currentFragmentName = "nutrition_detail_Fragment";
+                                currentFragment = fragment;
+                                getSupportFragmentManager().beginTransaction()
+                                        .replace(R.id.dashboardcategory_detail_container, fragment)
+                                        .commit();
+                                break;
+                            }
+                            case 8: {
+                                Bundle arguments = new Bundle();
+                                arguments.putString(contraceptiveSupplyStatusDetailFragment.ARG_ITEM_ID, holder.mItem.id);
+                                contraceptiveSupplyStatusDetailFragment fragment = new contraceptiveSupplyStatusDetailFragment();
+                                arguments.putSerializable("controller_holder",controllerholder);
+                                fragment.setArguments(arguments);
+                                currentFragmentName = "contraceptive_supply_status_detailFragment";
                                 currentFragment = fragment;
                                 getSupportFragmentManager().beginTransaction()
                                         .replace(R.id.dashboardcategory_detail_container, fragment)

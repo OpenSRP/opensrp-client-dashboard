@@ -12,11 +12,18 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import dashboard.opensrp.org.jandjdashboard.R;
 import dashboard.opensrp.org.jandjdashboard.adapter.scheduleCardAdapter;
+import dashboard.opensrp.org.jandjdashboard.controller.controllerHolders;
+import dashboard.opensrp.org.jandjdashboard.controller.reproductiveHealthServiceController;
+import dashboard.opensrp.org.jandjdashboard.controller.upcomingScheduleStatusController;
 import dashboard.opensrp.org.jandjdashboard.dashboardCategoryDetailActivity;
 import dashboard.opensrp.org.jandjdashboard.dashboardCategoryListActivity;
 import dashboard.opensrp.org.jandjdashboard.dummy.DummyContent;
@@ -38,10 +45,14 @@ public class reproductive_health_service_Fragment extends Fragment {
      * The dummy content this fragment is presenting.
      */
     private DummyContent.DummyItem mItem;
-    private RecyclerView recyclerView;
-    private scheduleCardAdapter adapter;
-    private ArrayList<Drawable> iconList;
-    private ArrayList<String> titleList;
+    reproductiveHealthServiceController rhsController;
+    private String controller_holder_key = "controller_holder";
+    private String reproductiveHealthServiceControllerKey = "reproductiveHealthServiceController";
+    TextView anc1Service,anc1Info,anc2Service,anc2Info,anc3Service,anc3Info,anc4Service,anc4Info,
+            pnc1Service,pnc1Info,pnc2Service,pnc2Info,pnc3Service,pnc3Info,encc1Service,encc1Info,
+            encc2Service,encc2Info,encc3Service,encc3Info,tt1info,tt1service,tt2info,tt2service,tt3info,tt3service
+            ,tt4info,tt4service,tt5info,tt5service,ecpreceptorservice,ecpreceptorinfo;
+    private TextView filtertitle;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -66,57 +77,116 @@ public class reproductive_health_service_Fragment extends Fragment {
                 appBarLayout.setTitle(mItem.content);
             }
         }
+        if (getArguments().containsKey(controller_holder_key)) {
+            // Load the dummy content specified by the fragment
+            // arguments. In a real-world scenario, use a Loader
+            // to load content from a content provider.
+            rhsController = (reproductiveHealthServiceController) ((controllerHolders)getArguments().getSerializable(controller_holder_key)).getControllersHashMap().get(reproductiveHealthServiceControllerKey);
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.reproductive_health_service, container, false);
+        setupviews(rootView);
+        Date today = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(today);
+        cal.add(Calendar.DATE, -(365*10));
+        Date yesterday = cal.getTime();
+        refresh(rhsController.format.format(yesterday.getTime()),rhsController.format.format(today.getTime()));
         return rootView;
     }
-    private void prepareAlbums() {
 
+    private void setupviews(View rootView) {
+        anc1Info = (TextView)rootView.findViewById(R.id.anc_visit_1_info);
+        anc1Service = (TextView)rootView.findViewById(R.id.anc_visit_1_service);
+        anc2Info = (TextView)rootView.findViewById(R.id.anc_visit_2_info);
+        anc2Service = (TextView)rootView.findViewById(R.id.anc_visit_2_service);
+        anc3Info = (TextView)rootView.findViewById(R.id.anc_visit_3_info);
+        anc3Service = (TextView)rootView.findViewById(R.id.anc_visit_3_service);
+        anc4Info = (TextView)rootView.findViewById(R.id.anc_visit_4_info);
+        anc4Service = (TextView)rootView.findViewById(R.id.anc_visit_4_service);
+
+        pnc1Info = (TextView)rootView.findViewById(R.id.pnc_current_visit_one);
+        pnc1Service = (TextView)rootView.findViewById(R.id.pnc_service_visit_one);
+        pnc2Info = (TextView)rootView.findViewById(R.id.pnc_current_visit_two);
+        pnc2Service = (TextView)rootView.findViewById(R.id.pnc_service_visit_two);
+        pnc3Info = (TextView)rootView.findViewById(R.id.pnc_current_visit_three);
+        pnc3Service = (TextView)rootView.findViewById(R.id.pnc_service_visit_three);
+
+        encc1Info = (TextView)rootView.findViewById(R.id.encc_current_visit_one);
+        encc1Service = (TextView)rootView.findViewById(R.id.encc_service_visit_one);
+        encc2Info = (TextView)rootView.findViewById(R.id.encc_current_visit_two);
+        encc2Service = (TextView)rootView.findViewById(R.id.encc_service_visit_two);
+        encc3Info = (TextView)rootView.findViewById(R.id.encc_current_visit_three);
+        encc3Service = (TextView)rootView.findViewById(R.id.encc_service_visit_three);
+
+        tt1info = (TextView)rootView.findViewById(R.id.tt_received_1_info);
+        tt1service = (TextView)rootView.findViewById(R.id.tt_received_1_service);
+        tt2info = (TextView)rootView.findViewById(R.id.tt_received_2_info);
+        tt2service = (TextView)rootView.findViewById(R.id.tt_received_2_service);
+        tt3info = (TextView)rootView.findViewById(R.id.tt_received_3_info);
+        tt3service = (TextView)rootView.findViewById(R.id.tt_received_3_service);
+        tt4info = (TextView)rootView.findViewById(R.id.tt_received_4_info);
+        tt4service = (TextView)rootView.findViewById(R.id.tt_received_4_service);
+        tt5info = (TextView)rootView.findViewById(R.id.tt_received_5_info);
+        tt5service = (TextView)rootView.findViewById(R.id.tt_received_5_service);
+
+        ecpreceptorinfo = (TextView)rootView.findViewById(R.id.ecp_receptor_info);
+        ecpreceptorservice = (TextView)rootView.findViewById(R.id.ecp_receptor_service);
+        filtertitle = (TextView)rootView.findViewById(R.id.filtertitle);
 
     }
 
+    public void refresh(String from,String to) {
+        try {
+        Date fromdate = rhsController.format.parse(from);
+        Date todate =  rhsController.format.parse(to);
 
-    private int dpToPx(int dp) {
-        Resources r = getResources();
-        return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
-    }
+            filtertitle.setText(from+" to "+to);
 
-    public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
+        anc1Service.setText(rhsController.ancVisitQuery(fromdate,todate).get("anc1visit"));
+        anc1Info.setText(rhsController.ancVisitQuery(fromdate,todate).get("anc1visit"));
+        anc2Service.setText(rhsController.ancVisitQuery(fromdate,todate).get("anc2visit"));
+        anc2Info.setText(rhsController.ancVisitQuery(fromdate,todate).get("anc2visit"));
+        anc3Service.setText(rhsController.ancVisitQuery(fromdate,todate).get("anc3visit"));
+        anc3Info.setText(rhsController.ancVisitQuery(fromdate,todate).get("anc3visit"));
+        anc4Service.setText(rhsController.ancVisitQuery(fromdate,todate).get("anc4visit"));
+        anc4Info.setText(rhsController.ancVisitQuery(fromdate,todate).get("anc4visit"));
 
-        private int spanCount;
-        private int spacing;
-        private boolean includeEdge;
+        pnc1Service.setText(rhsController.pncVisitQuery(fromdate,todate).get("pnc1visit"));
+        pnc1Info.setText(rhsController.pncVisitQuery(fromdate,todate).get("pnc1visit"));
+        pnc2Service.setText(rhsController.pncVisitQuery(fromdate,todate).get("pnc2visit"));
+        pnc2Info.setText(rhsController.pncVisitQuery(fromdate,todate).get("pnc2visit"));
+        pnc3Service.setText(rhsController.pncVisitQuery(fromdate,todate).get("pnc3visit"));
+        pnc3Info.setText(rhsController.pncVisitQuery(fromdate,todate).get("pnc3visit"));
 
-        public GridSpacingItemDecoration(int spanCount, int spacing, boolean includeEdge) {
-            this.spanCount = spanCount;
-            this.spacing = spacing;
-            this.includeEdge = includeEdge;
+        encc1Service.setText(rhsController.neonatalVisitQuery(fromdate,todate).get("encc1visit"));
+        encc1Info.setText(rhsController.neonatalVisitQuery(fromdate,todate).get("encc1visit"));
+        encc2Service.setText(rhsController.neonatalVisitQuery(fromdate,todate).get("encc2visit"));
+        encc2Info.setText(rhsController.neonatalVisitQuery(fromdate,todate).get("encc2visit"));
+        encc3Service.setText(rhsController.neonatalVisitQuery(fromdate,todate).get("encc3visit"));
+        encc3Info.setText(rhsController.neonatalVisitQuery(fromdate,todate).get("encc3visit"));
+
+        tt1service.setText(rhsController.ttquery(fromdate,todate).get("tt1given"));
+        tt1info.setText(rhsController.ttquery(fromdate,todate).get("tt1given"));
+        tt2service.setText(rhsController.ttquery(fromdate,todate).get("tt2given"));
+        tt2info.setText(rhsController.ttquery(fromdate,todate).get("tt2given"));
+        tt3service.setText(rhsController.ttquery(fromdate,todate).get("tt3given"));
+        tt3info.setText(rhsController.ttquery(fromdate,todate).get("tt3given"));
+        tt4service.setText(rhsController.ttquery(fromdate,todate).get("tt4given"));
+        tt4info.setText(rhsController.ttquery(fromdate,todate).get("tt4given"));
+        tt5service.setText(rhsController.ttquery(fromdate,todate).get("tt5given"));
+        tt5info.setText(rhsController.ttquery(fromdate,todate).get("tt5given"));
+
+        ecpreceptorinfo.setText(rhsController.ecpReceptors(fromdate,todate));
+        ecpreceptorservice.setText(rhsController.ecpReceptors(fromdate,todate));
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
-
-        @Override
-        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-            int position = parent.getChildAdapterPosition(view); // item position
-            int column = position % spanCount; // item column
-
-            if (includeEdge) {
-                outRect.left = spacing - column * spacing / spanCount; // spacing - column * ((1f / spanCount) * spacing)
-                outRect.right = (column + 1) * spacing / spanCount; // (column + 1) * ((1f / spanCount) * spacing)
-
-                if (position < spanCount) { // top edge
-                    outRect.top = spacing;
-                }
-                outRect.bottom = spacing; // item bottom
-            } else {
-                outRect.left = column * spacing / spanCount; // column * ((1f / spanCount) * spacing)
-                outRect.right = spacing - (column + 1) * spacing / spanCount; // spacing - (column + 1) * ((1f /    spanCount) * spacing)
-                if (position >= spanCount) {
-                    outRect.top = spacing; // item top
-                }
-            }
-        }
     }
+
+
 }
