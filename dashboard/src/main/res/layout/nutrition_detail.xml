@@ -266,9 +266,17 @@
             android:background="@color/tableborder"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/pregnant_and_mother_label"
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:background="@color/selectedlistred"
+                android:gravity="center"
+                android:text="Pregnant and Mother 0-23 months"
+                android:textColor="@color/cardview_light_background" />
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -284,15 +292,26 @@
                     android:text="Service Type" />
 
                 <TextView
-                    android:id="@+id/infolabel"
-                    android:layout_width="60dp"
+                    android:id="@+id/pregnantwomanlabel"
+                    android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
                     android:layout_marginRight="1dp"
                     android:layout_marginTop="1dp"
                     android:background="@color/alttablerow"
                     android:gravity="center"
-                    android:text="Info" />
+                    android:text="Pregnant Woman" />
+
+                <TextView
+                    android:id="@+id/mother_zero_to_twenty_three_months_label"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/alttablerow"
+                    android:gravity="center"
+                    android:text="Mother (0-23 months)" />
             </LinearLayout>
 
             <LinearLayout
@@ -302,7 +321,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/total_live_birth_label"
+                    android:id="@+id/iron_and_folic_acid_label"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
@@ -311,11 +330,21 @@
                     android:layout_weight="1"
                     android:background="@color/cardview_light_background"
                     android:gravity="center"
-                    android:text="Total Number of Livebirth" />
+                    android:text="Iron and Folic Acid Tablets and Provided Counselling on Complimentary Food" />
 
                 <TextView
-                    android:id="@+id/total_live_birth_info"
-                    android:layout_width="60dp"
+                    android:id="@+id/iron_and_folic_acid_pregnant_woman_info"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/cardview_light_background"
+                    android:gravity="center"
+                    android:text="" />
+                <TextView
+                    android:id="@+id/iron_and_folic_acid_mother_info"
+                    android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
                     android:layout_marginRight="1dp"
@@ -332,7 +361,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/low_birthweight_label"
+                    android:id="@+id/distributed_iron_and_folic_acid_label"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
@@ -341,11 +370,21 @@
                     android:layout_weight="1"
                     android:background="@color/alttablerow"
                     android:gravity="center"
-                    android:text="Number of newborn with low birth weight(birth weight less than 2.5 kg)" />
+                    android:text="Distributed Iron and Folic Acid Tablets" />
 
                 <TextView
-                    android:id="@+id/low_birthweight_info"
-                    android:layout_width="60dp"
+                    android:id="@+id/distributed_iron_and_folic_acid_pregnant_woman_info"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/alttablerow"
+                    android:gravity="center"
+                    android:text="" />
+                <TextView
+                    android:id="@+id/distributed_iron_and_folic_acid_mother_info"
+                    android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
                     android:layout_marginRight="1dp"
@@ -362,7 +401,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/immature_birth_label"
+                    android:id="@+id/counselling_on_breastfeeding_and_complimentary_food_label"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
@@ -371,11 +410,21 @@
                     android:layout_weight="1"
                     android:background="@color/cardview_light_background"
                     android:gravity="center"
-                    android:text="Number Of Immature Birth(birth before 37 weeks)" />
+                    android:text="Counselling on breastfeeding and complimentary food" />
 
                 <TextView
-                    android:id="@+id/immature_info"
-                    android:layout_width="60dp"
+                    android:id="@+id/counselling_on_breastfeeding_and_complimentary_food_pregnant_woman_info"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/cardview_light_background"
+                    android:gravity="center"
+                    android:text="" />
+                <TextView
+                    android:id="@+id/counselling_on_breastfeeding_and_complimentary_food_mother_info"
+                    android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
                     android:layout_marginRight="1dp"
@@ -392,7 +441,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/still_birth_label"
+                    android:id="@+id/counselling_on_feeding_mnp_to_children_label"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="1dp"
@@ -403,10 +452,20 @@
                     android:background="@color/alttablerow"
                     android:gravity="center"
                     android:text="Still Birth" />
-
                 <TextView
-                    android:id="@+id/still_birth_info"
-                    android:layout_width="60dp"
+                    android:id="@+id/counselling_on_feeding_mnp_to_children_pregnant_woman_info"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/alttablerow"
+                    android:gravity="center"
+                    android:text="" />
+                <TextView
+                    android:id="@+id/counselling_on_feeding_mnp_to_children_mother_info"
+                    android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="1dp"
                     android:layout_marginLeft="1dp"
@@ -422,12 +481,20 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
+            android:layout_marginLeft="10dp"
             android:background="@color/tableborder"
             android:orientation="vertical">
-
+            <TextView
+                android:id="@+id/children_label"
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:textColor="@color/cardview_light_background"
+                android:background="@color/selectedlistred"
+                android:gravity="center"
+                android:text="Children 0-59 months" />
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -443,15 +510,40 @@
                     android:text="Service Type" />
 
                 <TextView
-                    android:id="@+id/infolabel2"
-                    android:layout_width="60dp"
+                    android:id="@+id/zero_to_six_month_label"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
                     android:layout_marginRight="1dp"
                     android:layout_marginTop="1dp"
                     android:background="@color/alttablerow"
                     android:gravity="center"
-                    android:text="Info" />
+                    android:padding="2dp"
+                    android:text="0 - 6 months" />
+
+                <TextView
+                    android:id="@+id/six_to_24_month_label"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/alttablerow"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="6 - 24 months" />
+
+                <TextView
+                    android:id="@+id/twentyfour_to_fifty_month_label"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/alttablerow"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="24 - 50 months" />
             </LinearLayout>
 
             <LinearLayout
@@ -460,26 +552,6 @@
                 android:layout_marginTop="1dp"
                 android:layout_weight="1"
                 android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="1dp"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
-                    android:layout_weight="1"
-                    android:background="@color/cardview_light_background"
-                    android:orientation="vertical">
-
-                    <dashboard.opensrp.org.jandjdashboard.widgets.VerticalTextView
-                        android:id="@+id/number_of_death_label"
-                        android:layout_width="12dp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:background="@color/cardview_light_background"
-                        android:gravity="center"
-                        android:text="Total Number of Death" />
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -494,34 +566,6 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="80dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="1dp"
-                            android:background="@color/cardview_light_background"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="15dp"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center"
-                                android:background="@color/cardview_light_background"
-                                android:orientation="vertical">
-
-                                <dashboard.opensrp.org.jandjdashboard.widgets.VerticalTextView
-                                    android:id="@+id/number_of_infant_death_label"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_gravity="center"
-                                    android:layout_margin="1dp"
-                                    android:background="@color/cardview_light_background"
-                                    android:gravity="center"
-                                    android:text="Child Death under 1"
-                                    android:textSize="13dp" />
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -534,19 +578,38 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/zero_to_seven_days_label"
-                                    android:layout_width="60dp"
+                                    android:id="@+id/feed_colostrum_milk_label"
+                                    android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginLeft="1dp"
                                     android:layout_marginRight="1dp"
                                     android:layout_weight="1"
                                     android:background="@color/cardview_light_background"
                                     android:gravity="center"
-                                    android:text="0-7 days" />
+                                    android:padding="2dp"
+                                    android:text="Feed Colostrum Milk within 1 hour after birth" />
 
                                 <TextView
-                                    android:id="@+id/zero_to_seven_days_info"
-                                    android:layout_width="60dp"
+                                    android:id="@+id/feed_colostrum_milk_zero_to_six_month_info"
+                                    android:layout_width="80dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginRight="1dp"
+                                    android:background="@color/cardview_light_background"
+                                    android:gravity="center"
+                                    android:text="" />
+                                <TextView
+                                    android:id="@+id/feed_colostrum_milk_six_to_24_month_info"
+                                    android:layout_width="80dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginRight="1dp"
+                                    android:background="@color/cardview_light_background"
+                                    android:gravity="center"
+                                    android:text="" />
+                                <TextView
+                                    android:id="@+id/feed_colostrum_milk_twentyfour_to_fifty_month_info"
+                                    android:layout_width="80dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginLeft="1dp"
                                     android:layout_marginRight="1dp"
@@ -562,8 +625,8 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/eight_to28days_label"
-                                    android:layout_width="60dp"
+                                    android:id="@+id/breastfeeding_up_to_6_months_label"
+                                    android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginLeft="1dp"
                                     android:layout_marginRight="1dp"
@@ -571,11 +634,32 @@
                                     android:layout_weight="1"
                                     android:background="@color/alttablerow"
                                     android:gravity="center"
-                                    android:text="8-28 days" />
+                                    android:padding="2dp"
+                                    android:text="Breastfeeding up to 6 months" />
 
                                 <TextView
-                                    android:id="@+id/eight_to28days_info"
-                                    android:layout_width="60dp"
+                                    android:id="@+id/breastfeeding_up_to_6_months_zero_to_six_months_info"
+                                    android:layout_width="80dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginRight="1dp"
+                                    android:layout_marginTop="1dp"
+                                    android:background="@color/alttablerow"
+                                    android:gravity="center"
+                                    android:text="" />
+                                <TextView
+                                    android:id="@+id/breastfeeding_up_to_6_months_six_to_twentyfour_months_info"
+                                    android:layout_width="80dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginRight="1dp"
+                                    android:layout_marginTop="1dp"
+                                    android:background="@color/alttablerow"
+                                    android:gravity="center"
+                                    android:text="" />
+                                <TextView
+                                    android:id="@+id/breastfeeding_up_to_6_months_twentyfour_to_fifty_months_info"
+                                    android:layout_width="80dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginLeft="1dp"
                                     android:layout_marginRight="1dp"
@@ -592,8 +676,8 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/twentyninedays_to_year_label"
-                                    android:layout_width="60dp"
+                                    android:id="@+id/providing_extra_complimentary_food_label"
+                                    android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginLeft="1dp"
                                     android:layout_marginRight="1dp"
@@ -601,11 +685,32 @@
                                     android:layout_weight="1"
                                     android:background="@color/cardview_light_background"
                                     android:gravity="center"
-                                    android:text="29 days to 1 year" />
+                                    android:padding="2dp"
+                                    android:text="Providing extra complimentary food along with the breast milk after 6 months" />
 
                                 <TextView
-                                    android:id="@+id/twentyninedays_to_year_info"
-                                    android:layout_width="60dp"
+                                    android:id="@+id/providing_extra_complimentary_food_zero_to_6_months_info"
+                                    android:layout_width="80dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginRight="1dp"
+                                    android:layout_marginTop="1dp"
+                                    android:background="@color/cardview_light_background"
+                                    android:gravity="center"
+                                    android:text="" />
+                                <TextView
+                                    android:id="@+id/providing_extra_complimentary_food_6_to_24_months_info"
+                                    android:layout_width="80dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginRight="1dp"
+                                    android:layout_marginTop="1dp"
+                                    android:background="@color/cardview_light_background"
+                                    android:gravity="center"
+                                    android:text="" />
+                                <TextView
+                                    android:id="@+id/providing_extra_complimentary_food_24_to_50_months_info"
+                                    android:layout_width="80dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginLeft="1dp"
                                     android:layout_marginRight="1dp"
@@ -622,24 +727,49 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/total_label"
-                                    android:layout_width="60dp"
+                                    android:id="@+id/received_multiple_mnr_label"
+                                    android:layout_width="0dp"
                                     android:layout_height="match_parent"
+                                    android:layout_marginBottom="1dp"
                                     android:layout_marginLeft="1dp"
                                     android:layout_marginRight="1dp"
                                     android:layout_marginTop="1dp"
                                     android:layout_weight="1"
                                     android:background="@color/alttablerow"
                                     android:gravity="center"
-                                    android:text="Total" />
+                                    android:padding="2dp"
+                                    android:text="Received Multiple Micronutrient Powder(MNP)" />
 
                                 <TextView
-                                    android:id="@+id/total_info"
-                                    android:layout_width="60dp"
+                                    android:id="@+id/received_multiple_mnr_0_to_6months_info"
+                                    android:layout_width="80dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginLeft="1dp"
                                     android:layout_marginRight="1dp"
                                     android:layout_marginTop="1dp"
+                                    android:layout_marginBottom="1dp"
+                                    android:background="@color/alttablerow"
+                                    android:gravity="center"
+                                    android:text="" />
+                                <TextView
+                                    android:id="@+id/received_multiple_mnr_6_to_24months_info"
+                                    android:layout_width="80dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginRight="1dp"
+                                    android:layout_marginTop="1dp"
+                                    android:layout_marginBottom="1dp"
+                                    android:background="@color/alttablerow"
+                                    android:gravity="center"
+                                    android:text="" />
+                                <TextView
+                                    android:id="@+id/received_multiple_mnr_24_to_50months_info"
+                                    android:layout_width="80dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginRight="1dp"
+                                    android:layout_marginTop="1dp"
+                                    android:layout_marginBottom="1dp"
                                     android:background="@color/alttablerow"
                                     android:gravity="center"
                                     android:text="" />
@@ -648,105 +778,6 @@
                         </LinearLayout>
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/number_of_child_death_1_to_5_label"
-                                android:layout_width="60dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginLeft="1dp"
-                                android:layout_marginRight="1dp"
-                                android:layout_marginTop="1dp"
-                                android:layout_weight="1"
-                                android:background="@color/cardview_light_background"
-                                android:gravity="center"
-                                android:text="Number of 1 to 5 years Child Death" />
-
-                            <TextView
-                                android:id="@+id/number_of_child_death_1_to_5_info"
-                                android:layout_width="60dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginLeft="1dp"
-                                android:layout_marginRight="1dp"
-                                android:layout_marginTop="1dp"
-                                android:background="@color/cardview_light_background"
-                                android:gravity="center"
-                                android:text="" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/number_of_mother_death_label"
-                                android:layout_width="60dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginLeft="1dp"
-                                android:layout_marginRight="1dp"
-                                android:layout_marginTop="1dp"
-                                android:layout_weight="1"
-                                android:background="@color/alttablerow"
-                                android:gravity="center"
-                                android:text="Number of Mother Death" />
-
-                            <TextView
-                                android:id="@+id/number_of_mother_death_info"
-                                android:layout_width="60dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginLeft="1dp"
-                                android:layout_marginRight="1dp"
-                                android:layout_marginTop="1dp"
-                                android:background="@color/alttablerow"
-                                android:gravity="center"
-                                android:text="" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/number_of_other_death_label"
-                                android:layout_width="60dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginBottom="1dp"
-                                android:layout_marginLeft="1dp"
-                                android:layout_marginRight="1dp"
-                                android:layout_marginTop="1dp"
-                                android:layout_weight="1"
-                                android:background="@color/cardview_light_background"
-                                android:gravity="center"
-                                android:text="Number of Other Death" />
-
-                            <TextView
-                                android:id="@+id/number_of_other_death_info"
-                                android:layout_width="60dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginBottom="1dp"
-                                android:layout_marginLeft="1dp"
-                                android:layout_marginRight="1dp"
-                                android:layout_marginTop="1dp"
-                                android:background="@color/cardview_light_background"
-                                android:gravity="center"
-                                android:text="" />
-                        </LinearLayout>
-
-                    </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>
