@@ -7,15 +7,18 @@ dist: precise
 
 env:
   matrix:
-    - ANDROID_TARGET=android-26 ANDROID_ABI=armeabi-v7a
+    - ANDROID_TARGET=android-21 ANDROID_ABI=armeabi-v7a
   global:
     # wait up to 10 minutes for adb to connect to emulator
     - ADB_INSTALL_TIMEOUT=10
     - MALLOC_ARENA_MAX=2
 
 android:
+  update_sdk: true
   components:
     # tools required
+    - tools
+    - platform-tools
     - tools
     # The BuildTools version used by your project
     - build-tools-27.0.0
@@ -30,6 +33,7 @@ android:
 
     # Specify at least one system image,
     # if you need to run emulator(s) during your tests
+    - sys-img-armeabi-v7a-android-21
 
 addons:
   apt_packages:
@@ -37,10 +41,10 @@ addons:
 
 before_script:
   # Emulator Management: Create, Start and Wait
-#  - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
-#  - emulator -avd test -no-skin -no-audio -no-window &
-#  - adb wait-for-device
-#  - adb shell input keyevent 82 &
+  - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
+  - emulator -avd test -no-skin -no-audio -no-window &
+  - adb wait-for-device
+  - adb shell input keyevent 82 &
 
 script: 
   - echo "Travis branch is $TRAVIS_BRANCH"
