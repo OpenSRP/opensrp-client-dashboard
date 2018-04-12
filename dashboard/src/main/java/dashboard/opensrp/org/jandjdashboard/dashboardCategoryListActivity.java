@@ -2,10 +2,12 @@ package dashboard.opensrp.org.jandjdashboard;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -14,7 +16,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -44,7 +45,9 @@ import static dashboard.opensrp.org.jandjdashboard.dummy.DummyContent.menudrawab
  * item details side-by-side using two vertical panes.
  */
 public class dashboardCategoryListActivity extends AppCompatActivity {
-
+    static {
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+    }
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
      * device.
@@ -185,7 +188,12 @@ public class dashboardCategoryListActivity extends AppCompatActivity {
                         previousViewSelectedInLIST.setBackgroundColor(getResources().getColor(R.color.mainblue));
                         previousViewSelectedInLIST = holder.mView;
                     }
-                    holder.mView.setBackground(getResources().getDrawable(R.drawable.rotatepointer));
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+                        holder.mView.setBackgroundColor(getResources().getColor(R.color.selectedlistred));
+                    }else{
+                        holder.mView.setBackground(getResources().getDrawable(R.drawable.rotatepointer));
+                    }
+
                     if (mTwoPane) {
                         switch (position) {
                             case 0: {
