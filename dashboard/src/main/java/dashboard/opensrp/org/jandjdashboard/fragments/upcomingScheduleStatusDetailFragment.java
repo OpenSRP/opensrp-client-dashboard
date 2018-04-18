@@ -2,12 +2,10 @@ package dashboard.opensrp.org.jandjdashboard.fragments;
 
 import android.app.Activity;
 import android.content.res.Resources;
-import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -37,7 +35,7 @@ import dashboard.opensrp.org.jandjdashboard.dummy.DummyContent;
  * in two-pane mode (on tablets) or a {@link dashboardCategoryDetailActivity}
  * on handsets.
  */
-public class upcomingScheduleStatusDetailFragment extends Fragment {
+public class upcomingScheduleStatusDetailFragment extends dashboardFragment {
     /**
      * The fragment argument representing the item ID that this fragment
      * represents.
@@ -200,6 +198,7 @@ public class upcomingScheduleStatusDetailFragment extends Fragment {
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
     }
 
+    @Override
     public void refresh(String fromdate, String todate) {
         prepareAlbums(fromdate,todate);
     }
